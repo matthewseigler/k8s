@@ -100,7 +100,7 @@ The goal of the cluster network is to update pod and service subnets.
 
 When configuring the machine config file if you wish to use Cilium or another CNI then set the CNI to none.  This prevents Flannel from being installed.  If deploying without kube-proxy, then kube proxy should be disabled as well 
 
-This should be appled only to the control plane nodes.
+This should be applied only to the control plane nodes.
 
 ```
 cluster:
