@@ -36,7 +36,8 @@ Run the following command to install Cilium with your Cilium YAML file in the `k
 helm install cilium cilium/cilium --version <latestVersion> --namespace kube-system -f <cilium.yaml file>
 ```
 
-> [!TIP] Label the worker nodes so that Cilium can identify which nodes should handle external traffic using:
+> [!TIP] 
+> Label the worker nodes so that Cilium can identify which nodes should handle external traffic using:
 > ```
 > kubectl label node <node-name> node.role.kubernetes.io/worker=""
 > ```
