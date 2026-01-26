@@ -6,7 +6,7 @@
 ### Using Cilium CLI
 
 > [!NOTE]
-> For Talos OS installations it is not recommended to use Cilium CLI but instead to use Helm.
+> For Talos OS installations it is not recommended to use Cilium CLI but instead to use Helm.  However the Cilium CLI can still be useful for things like verifying connectivity using `cilium status --wait`.
 
 Install the [Cilium CLI](https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli).  
 
@@ -20,7 +20,14 @@ To validate cluster network connectivity run `cilium connectivity test`.
 
 ### Using Helm
 
-Create the Cilium YAML file.
+Install and update the Helm repos:
+
+```
+helm repo add cilium https://helm.cilium.io/
+helm repo update
+```
+
+#### Create the Cilium values file.
 
 > [!CAUTION]
 > There is a known bug between Cilium and Talos OS which is corrected with `bpf.hostLegacyRouting` set to `true`.
@@ -28,9 +35,11 @@ Create the Cilium YAML file.
 > [!TIP]
 > Set `cni.exclusive` to `false` to allow Istio to work alongside Cilium
 
+#### Run the installation
+
 Run `helm search repo cilium/cilium -l | head` to get the latest version of Cilium.
 
-Run the following command to install Cilium with your Cilium YAML file in the `kube-system` namespace:
+Run the following command to install Cilium with your Cilium values file in the `kube-system` namespace:
 
 ```
 helm install cilium cilium/cilium --version <latestVersion> --namespace kube-system -f <cilium.yaml file>

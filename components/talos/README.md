@@ -26,6 +26,9 @@ brew install siderolabs/tap/talosctl
 
 ## Modify the configs
 
+> [!NOTE]
+> If using an alternative CNI, then when generating Talos machine configs, set the `cluster.network.cni.name` to `none` so Talos doesn't install Flannel.
+
 This is a temporary placeholder for future configurations.
 
 ## Talosctl - endpoints and nodes
