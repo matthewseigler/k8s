@@ -40,3 +40,4 @@ helm install cilium cilium/cilium --version <latestVersion> --namespace kube-sys
 > ```
 > kubectl label node <node-name> node.role.kubernetes.io/worker=""
 > ```
+
