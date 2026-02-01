@@ -165,7 +165,7 @@ machine:
       port: 7445
 ```
 
-## Apply Confiugurations
+## Apply Configurations
 
 
 
