@@ -53,11 +53,11 @@ helm repo update
 ```
 
 > [!NOTE]
-> While there are several ways to install Cilium, for this installation we will be doing so without kube-proxy and with Gateway API support.
+> While there are several ways to install Cilium, for this installation we will be doing so without kube-proxy.  There is an option to add the Gateway API, but since we won't be using Cilium for the Gateway API but rather Istio Gateway API we will avoid this step.
 > If using a newer version of Cilium make sure you change the `--version`.
 
 ```
-helm install \
+helm template \
     cilium \
     cilium/cilium \
     --version 1.18.0 \
@@ -69,9 +69,10 @@ helm install \
     --set cgroup.autoMount.enabled=false \
     --set cgroup.hostRoot=/sys/fs/cgroup \
     --set k8sServiceHost=localhost \
-    --set k8sServicePort=7445
-    --set=gatewayAPI.enabled=true \
-    --set=gatewayAPI.enableAlpn=true \
-    --set=gatewayAPI.enableAppProtocol=true
+    --set k8sServicePort=7445 > cilium.yaml
+
+kubectl apply -f cilium.yaml
 ```
+
+
 
