@@ -21,7 +21,7 @@ To create a Kubernetes cluster with Talos, you'll need `talosctl`.
 
 ## Downlaod Talos Linux Image
 
-Create teh latest ISO for your architecture from the [Image factory](https://factory.talos.dev/).
+Create the latest ISO for your architecture from the [Image factory](https://factory.talos.dev/).
 
 ## Boot Machine
 
