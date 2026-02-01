@@ -87,8 +87,9 @@ The three files generates:
 For ESXi installation `interfaces.interfaces` needs to set be to `ens33`.
 
 > [!WARNING]
-> If you run `talosctl get links --insecure --nodes <nodeIP>` at this stage it will most likely show `eth0` as your interface.  This seems to be a default interface name given, however upon restart this will change to `ens33` on some installations and as such this will cause the installation to hang.  
-> An option to check this is `talosctl config endpoint <nodeIP>` followed by `talosctl --nodes <nodeIP> get addressspecs`.
+> If you run `talosctl get links --insecure --nodes <nodeIP>` at this stage it will most likely show `eth0` as your interface.  This seems to be a default interface name given, however upon restart this will change to `ens33` on some ESXi installations and as such this will cause the installation to hang.  
+> An option to check this is `talosctl config endpoint <nodeIP>` followed by `talosctl --nodes <nodeIP> get addressspecs` on the node that is encountering the issue.
+> I'll need to do more testing, however I believe if you know the correct link you can run it with `--mode=reboot` to reboot for the correct link to bind on, as well as I believe there is an option to bypass all of this by using the MAC address of the link rather than the name.
 
 If the node IP needs to be altered or set, use `interfaces.addresses` and set it to `<ip/CIDR>`.
 
